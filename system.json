@@ -35,7 +35,7 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
+  "manifest": "https://raw.githubusercontent.com/BinaryDoubts/trespasser/main/system.json",
   "download": "This must link to a .zip file of the current version",
   "background": "systems/trespasser/assets/anvil-impact.png",
   "gridDistance": 5,
