@@ -5,7 +5,8 @@
   "authors": [
     {
       "name": "BinaryDoubts",
-      "discord": "BinaryDoubts"
+      "discord": "BinaryDoubts",
+      "flags": {}
     }
   ],
   "url": "https://github.com/BinaryDoubts/trespasser",
@@ -15,26 +16,30 @@
     {
       "type": "setup",
       "url": "systems/trespasser/assets/anvil-impact.png",
-      "thumbnail": "systems/trespasser/assets/anvil-impact.png"
+      "thumbnail": "systems/trespasser/assets/anvil-impact.png",
+      "loop": false,
+      "flags": {}
     }
   ],
   "version": "1.0",
   "compatibility": {
-    "minimum": 11,
+    "minimum": "11",
     "verified": "11.315"
   },
-  "esmodules": ["module/trespasser.mjs"],
-  "styles": ["css/trespasser.css"],
+  "esmodules": [
+    "module/trespasser.mjs"
+  ],
+  "styles": [
+    "css/trespasser.css"
+  ],
   "languages": [
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     }
   ],
-  "packs": [],
-  "packFolders": [],
-  "socket": false,
   "manifest": "https://raw.githubusercontent.com/BinaryDoubts/trespasser/main/system.json",
   "download": "This must link to a .zip file of the current version",
   "background": "systems/trespasser/assets/anvil-impact.png",
