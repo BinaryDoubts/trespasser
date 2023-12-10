@@ -8,25 +8,23 @@
       "discord": "BinaryDoubts"
     }
   ],
-  "url": "Replace this with a link to your public repository",
+  "url": "https://github.com/BinaryDoubts/trespasser",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "Replace this with a link to file issues or tickets",
-  "changelog": "CHANGELOG.md",
   "media": [
     {
       "type": "setup",
-      "url": "systems/boilerplate/assets/anvil-impact.png",
-      "thumbnail": "systems/boilerplate/assets/anvil-impact.png"
+      "url": "systems/trespasser/assets/anvil-impact.png",
+      "thumbnail": "systems/trespasser/assets/anvil-impact.png"
     }
   ],
-  "version": "1.3.0",
+  "version": "1.0",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
   },
-  "esmodules": ["module/boilerplate.mjs"],
-  "styles": ["css/boilerplate.css"],
+  "esmodules": ["module/trespasser.mjs"],
+  "styles": ["css/trespasser.css"],
   "languages": [
     {
       "lang": "en",
@@ -39,9 +37,9 @@
   "socket": false,
   "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
   "download": "This must link to a .zip file of the current version",
-  "background": "systems/boilerplate/assets/anvil-impact.png",
+  "background": "systems/trespasser/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power"
+  "primaryTokenAttribute": "hp",
+  "secondaryTokenAttribute": "effort"
 }

@@ -1,22 +1,22 @@
 {
-  "BOILERPLATE.AbilityStr": "Strength",
-  "BOILERPLATE.AbilityCon": "Constitution",
-  "BOILERPLATE.AbilityDex": "Dexterity",
-  "BOILERPLATE.AbilityInt": "Intelligence",
-  "BOILERPLATE.AbilityWis": "Wisdom",
-  "BOILERPLATE.AbilityCha": "Charisma",
+  "TRESPASSER.AbilityStr": "Strength",
+  "TRESPASSER.AbilityCon": "Constitution",
+  "TRESPASSER.AbilityDex": "Dexterity",
+  "TRESPASSER.AbilityInt": "Intelligence",
+  "TRESPASSER.AbilityWis": "Wisdom",
+  "TRESPASSER.AbilityCha": "Charisma",
 
-  "BOILERPLATE.AbilityStrAbbr": "str",
-  "BOILERPLATE.AbilityConAbbr": "con",
-  "BOILERPLATE.AbilityDexAbbr": "dex",
-  "BOILERPLATE.AbilityIntAbbr": "int",
-  "BOILERPLATE.AbilityWisAbbr": "wis",
-  "BOILERPLATE.AbilityChaAbbr": "cha",
+  "TRESPASSER.AbilityStrAbbr": "str",
+  "TRESPASSER.AbilityConAbbr": "con",
+  "TRESPASSER.AbilityDexAbbr": "dex",
+  "TRESPASSER.AbilityIntAbbr": "int",
+  "TRESPASSER.AbilityWisAbbr": "wis",
+  "TRESPASSER.AbilityChaAbbr": "cha",
 
-  "BOILERPLATE.EffectCreate": "Create Effect",
-  "BOILERPLATE.EffectToggle": "Toggle Effect",
-  "BOILERPLATE.EffectEdit": "Edit Effect",
-  "BOILERPLATE.EffectDelete": "Delete Effect",
+  "TRESPASSER.EffectCreate": "Create Effect",
+  "TRESPASSER.EffectToggle": "Toggle Effect",
+  "TRESPASSER.EffectEdit": "Edit Effect",
+  "TRESPASSER.EffectDelete": "Delete Effect",
 
-  "BOILERPLATE.Add": "Add"
+  "TRESPASSER.Add": "Add"
 }

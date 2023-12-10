@@ -1,73 +1,253 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
-    "templates": {
-      "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
-        },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        },
-        "biography": ""
-      }
-    },
+    "types": ["character"],
+    "htmlFields": ["biography"],
     "character": {
-      "templates": ["base"],
-      "attributes": {
-        "level": {
-          "value": 1
+      "biography": "",
+      "inventory": {
+        "label": "TRESPASSER.inventory",
+        "value": [],
+        "lines": 18
+      },
+      "hp": {
+        "value": 10,
+        "min": 0,
+        "max": 10,
+        "label": "TRESPASSER.hp"
+      },
+      "recoveries": {
+        "value": 5,
+        "min": 0,
+        "label": "TRESPASSER.recoveries"
+      },
+      "effort": {
+        "value": 5,
+        "min": 0,
+        "max": 8,
+        "label": "TRESPASSER.effort"
+      },
+      "potency":{
+        "value": "d6",
+        "label": "TRESPASSER.potency"
+      },
+      "skillMod":{
+        "value": 2,
+        "min": 0,
+        "label": "TRESPASSER.skillMod"
+      },
+      "speed": {
+        "value": 25,
+        "min": 0,
+        "label": "TRESPASSER.speed"
+      },
+      "ac": {
+        "value": 15,
+        "min": 0,
+        "label": "TRESPASSER.ac"
+      },
+      "fatigue": {
+        "value": 0,
+        "min": 0,
+        "max": 20,
+        "label": "TRESPASSER.fatigue"
+      },
+      "class": {
+        "value" : "",
+        "label": "TRESPASSER.class"
+      },
+      "conditions":{
+        "value": [],
+        "label": "TRESPASSER.conditions"
+      },
+      "themes": {
+        "value": [],
+        "label": "TRESPASSER.themes"
+      },
+      "profession": {
+        "value": "",
+        "label": "TRESPASSER.profession"
+      },
+      "skills": {
+        "acrobatics": {
+          "value": false,
+          "label": "TRESPASSER.acrobatics"
+        },
+        "athletics": {
+          "value": false,
+          "label": "TRESPASSER.athletics"
+        },
+        "folklore": {
+          "value": false,
+          "label": "TRESPASSER.folklore"
+        },
+        "letters": {
+          "value": false,
+          "label": "TRESPASSER.letters"
+        },
+        "mystery": {
+          "value": false,
+          "label": "TRESPASSER.mystery"
+        },
+        "nature": {
+          "value": false,
+          "label": "TRESPASSER.nature"
+        },
+        "perception": {
+          "value": false,
+          "label": "TRESPASSER.perception"
+        },
+        "speech": {
+          "value": false,
+          "label": "TRESPASSER.speech"
+        },
+        "stealth": {
+          "value": false,
+          "label": "TRESPASSER.stealth"
+        },
+        "tinkering": {
+          "value": false,
+          "label": "TRESPASSER.tinkering"
         }
       },
-      "abilities": {
-        "str": {
-          "value": 10
+      "attributes": {
+        "strength":{
+          "value": 0,
+          "mod": 0,
+          "label": "TRESPASSER.strength"
         },
-        "dex": {
-          "value": 10
+        "agility":{
+          "value": 0,
+          "mod": 0,
+          "label": "TRESPASSER.agility"
         },
-        "con": {
-          "value": 10
+        "vigor":{
+          "value": 0,
+          "mod": 0,
+          "label": "TRESPASSER.vigor"
         },
-        "int": {
-          "value": 10
+        "knowledge":{
+          "value": 0,
+          "mod": 0,
+          "label": "TRESPASSER.knowledge"
         },
-        "wis": {
-          "value": 10
+        "cunning":{
+          "value": 0,
+          "mod": 0,
+          "label": "TRESPASSER.cunning"
         },
-        "cha": {
-          "value": 10
+        "resolve":{
+          "value": 0,
+          "mod": 0,
+          "label": "TRESPASSER.resolve"
         }
-      }
-    },
-    "npc": {
-      "templates": ["base"],
-      "cr": 0
+      },
+      "features": {
+        "value": [],
+        "label": "TRESPASSER.features"
+      },
+      "weapons": {
+        "equipped": [],
+        "label": "TRESPASSER.weapons.header",
+        "subLabels": [
+          "TRESPASSER.weapons.name",
+          "TRESPASSER.weapons.dmg",
+          "TRESPASSER.weapons.range",
+          "TRESPASSER.weapons.keywords",
+          "TRESPASSER.weapons.effect"
+        ]
+      },
+      "armor": {
+        "label": "TRESPASSER.armor.header",
+        "subLabels": [
+          "TRESPASSER.armor.name",
+          "TRESPASSER.armor.weight",
+          "TRESPASSER.armor.ac",
+          "TRESPASSER.armor.die"
+        ],
+        "head": {
+          "label": "TRESPASSER.armor.head",
+          "equipped": false
+        },
+        "body": {
+          "label": "TRESPASSER.armor.body",
+          "equipped": false
+        },
+        "arms": {
+          "label": "TRESPASSER.armor.arms",
+          "equipped": false
+        },
+        "legs": {
+          "label": "TRESPASSER.armor.legs",
+          "equipped": false
+        },
+        "outer": {
+          "label": "TRESPASSER.armor.outer",
+          "equipped": false
+        },
+        "shield": {
+          "label": "TRESPASSER.armor.shield",
+          "equipped": false
+        }
+      },
+      "groups": {}
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
-    "templates": {
-      "base": {
-        "description": ""
-      }
-    },
+    "types": ["item", "armor", "condition", "power"],
+    "htmlFields": ["description"],
     "item": {
-      "templates": ["base"],
+      "description": "",
       "quantity": 1,
       "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "attributes": {},
+      "groups": {}
     },
-    "feature": {
-      "templates": ["base"]
+    "armor": {
+      "name": "",
+      "weight": "L",
+      "ac": 0,
+      "die": "d6",
+      "used": false,
+      "equipped": false,
+      "notes": ""
     },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
+    "weapon": {
+      "name": "",
+      "hands": 1,
+      "dmg": "d6",
+      "keywords": "",
+      "range": "Melee",
+      "type": "Weapon",
+      "effect": ""
+    },
+    "condition": {
+      "name": "",
+      "value": 0,
+      "decreaseOnTurnEnd": true,
+      "effect": "",
+      "statusImg": ""
+    },
+    "power": {
+      "name": "",
+      "tier": "Basic",
+      "effortCost": 0,
+      "effortIncrease": 0,
+      "type": "",
+      "stat": "",
+      "implement": "",
+      "damageTag": "",
+      "targets": 1,
+      "areaType": "",
+      "areaSize": "",
+      "range": "",
+      "affectedType": "",
+      "useEffect": "",
+      "hitEffect": "",
+      "solidHitEffect": "",
+      "afterEffect": "",
+      "sourceType": "Universal",
+      "sourceName": ""
     }
   }
-}
+  }
+  
