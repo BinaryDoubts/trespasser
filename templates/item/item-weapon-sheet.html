@@ -1,0 +1,56 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </div>
+  </header>
+  {{system.weaponTypeString}}
+  <section class="sheet-body">
+    <div class = "grid grid-3col">
+      <div class = "flexcol flex-group-center">
+        <label for="system.twoHanded" class = "item-label">{{localize "TRESPASSER.weapons.twoHanded"}}</label>
+        <input type = "checkbox" name = "system.twoHanded" {{checked system.twoHanded}} value = "{{system.twoHanded}}" data-dtype = "Boolean"/>
+      </div>
+      <div class = "flexcol">
+        <label for="system.weight" class = "item-label">{{localize "TRESPASSER.weapons.weight"}}</label>
+        <input type = "text" name = "system.weight" value = "{{system.weight}}" data-dtype = "String"/>
+      </div>
+      <div class = "flexcol">
+        <label for = "system.dmg" class = "item-label">{{localize "TRESPASSER.weapons.dmg"}}</label>
+        <input type = "text" name = "system.dmg" value = "{{system.dmg}}" data-dtype = "String"/>
+      </div>
+    </div>
+    <table class = "weapon-range-table">
+      <tr>
+        <th></th>
+        <th style = "text-align: left;">{{localize "TRESPASSER.general.active"}}?</th>
+        <th>{{localize "TRESPASSER.weapons.range"}}</th>
+      </tr>
+      {{#each system.ranges as |data key|}}
+        <tr>
+          <td>{{data.label}}</td>
+          <td><input type = "checkbox" class = "weapon-type-range" name = "system.ranges.{{key}}.value" {{checked data.value}} value = "{{data.value}}" data-dtype = "Boolean"/></td>
+          <td><input type = "text" class = "weapon-type-range" name = "system.ranges.{{key}}.range" value = "{{data.range}}" data-dtype = "Number"/></td>
+        </tr>
+      {{/each}}
+    </table>
+    <label for = "system.effect">{{localize "TRESPASSER.weapons.effect"}}</label>
+    <input type = "text" name = "system.effect" value = "{{system.effect}}" data-dtype = "String"/>
+
+    <label for = "system.effectMacro">{{localize "TRESPASSER.weapons.macro"}}</label>
+    <input type = "text" name = "system.effect" value = "{{system.effectMacro}}" data-dtype = "String"/>
+    
+    <label for = "system.notes">{{localize "TRESPASSER.weapons.notes"}}</label>
+    <input type = "text" name = "system.notes" value = "{{system.notes}}" data-dtype = "String"/>
+    
+    <label for = "system.keywords">{{localize "TRESPASSER.weapons.keywords"}}</label>   
+    <input type = "text" name = "system.keywords" value = "{{system.keywords}}" data-dtype = "String"/>
+  
+    <hr>
+    <div class = "additional-options">
+
+    </div>
+  </section>
+  
+</form>

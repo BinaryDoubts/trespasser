@@ -1,0 +1,31 @@
+{{> actor-arms}}
+<hr>
+<div class = "grid grid-3col">
+  {{#each powers}}
+      <div class = "power-entry">
+        <div class = "flexrow flex-group-center">
+          <div style="min-height: 30px; vertical-align: middle;" class = "flexrow flex-group-center">
+            {{#if this.system.baseEffortCost}}
+              {{#if this.system.currentEffortCost}}
+              <div class = "flexrow flex-group-center">
+                <input type = "checkbox" {{#ifCond this.system.timesUsed ">=" 3}}checked{{/ifCond}} class = "effort-box" data-num = "1" id = "effort-1-{{this._id}}"/>
+                <input type = "checkbox" {{#ifCond this.system.timesUsed ">=" 2}}checked{{/ifCond}}class = "effort-box" data-num = "2" id = "effort-2-{{this._id}}"/>
+                <input type = "checkbox" {{#ifCond this.system.timesUsed ">=" 1}}checked{{/ifCond}}class = "effort-box" data-num = "3" id = "effort-3-{{this._id}}"/>
+              </div>
+                {{/if}}
+            {{/if}}
+            <div class = "flexrow flex-group-right">
+              <div class = "power-cost flexrow flex-group-center">{{this.system.currentEffortCost}}</div>
+            </div>
+          </div>
+        </div>
+        {{> power-card this}}
+        <div class="item-controls">
+          <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+          <a class="item-control item-delete" data-item-id = "{{this._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+          <a class="item-control item-share" data-item-id = "{{this._id}}" title="Share to Chat"><i class="fa-solid fa-share"></i></a>
+        </div>
+      </div>
+  {{/each}}
+
+</div>

@@ -1,253 +1,315 @@
 {
-  "Actor": {
-    "types": ["character"],
-    "htmlFields": ["biography"],
-    "character": {
-      "biography": "",
-      "inventory": {
-        "label": "TRESPASSER.inventory",
-        "value": [],
-        "lines": 18
-      },
-      "hp": {
-        "value": 10,
-        "min": 0,
-        "max": 10,
-        "label": "TRESPASSER.hp"
-      },
-      "recoveries": {
-        "value": 5,
-        "min": 0,
-        "label": "TRESPASSER.recoveries"
-      },
-      "effort": {
-        "value": 5,
-        "min": 0,
-        "max": 8,
-        "label": "TRESPASSER.effort"
-      },
-      "potency":{
-        "value": "d6",
-        "label": "TRESPASSER.potency"
-      },
-      "skillMod":{
-        "value": 2,
-        "min": 0,
-        "label": "TRESPASSER.skillMod"
-      },
-      "speed": {
-        "value": 25,
-        "min": 0,
-        "label": "TRESPASSER.speed"
-      },
-      "ac": {
-        "value": 15,
-        "min": 0,
-        "label": "TRESPASSER.ac"
-      },
-      "fatigue": {
-        "value": 0,
-        "min": 0,
-        "max": 20,
-        "label": "TRESPASSER.fatigue"
-      },
-      "class": {
-        "value" : "",
-        "label": "TRESPASSER.class"
-      },
-      "conditions":{
-        "value": [],
-        "label": "TRESPASSER.conditions"
-      },
-      "themes": {
-        "value": [],
-        "label": "TRESPASSER.themes"
-      },
-      "profession": {
-        "value": "",
-        "label": "TRESPASSER.profession"
-      },
-      "skills": {
-        "acrobatics": {
-          "value": false,
-          "label": "TRESPASSER.acrobatics"
-        },
-        "athletics": {
-          "value": false,
-          "label": "TRESPASSER.athletics"
-        },
-        "folklore": {
-          "value": false,
-          "label": "TRESPASSER.folklore"
-        },
-        "letters": {
-          "value": false,
-          "label": "TRESPASSER.letters"
-        },
-        "mystery": {
-          "value": false,
-          "label": "TRESPASSER.mystery"
-        },
-        "nature": {
-          "value": false,
-          "label": "TRESPASSER.nature"
-        },
-        "perception": {
-          "value": false,
-          "label": "TRESPASSER.perception"
-        },
-        "speech": {
-          "value": false,
-          "label": "TRESPASSER.speech"
-        },
-        "stealth": {
-          "value": false,
-          "label": "TRESPASSER.stealth"
-        },
-        "tinkering": {
-          "value": false,
-          "label": "TRESPASSER.tinkering"
-        }
-      },
-      "attributes": {
-        "strength":{
-          "value": 0,
-          "mod": 0,
-          "label": "TRESPASSER.strength"
-        },
-        "agility":{
-          "value": 0,
-          "mod": 0,
-          "label": "TRESPASSER.agility"
-        },
-        "vigor":{
-          "value": 0,
-          "mod": 0,
-          "label": "TRESPASSER.vigor"
-        },
-        "knowledge":{
-          "value": 0,
-          "mod": 0,
-          "label": "TRESPASSER.knowledge"
-        },
-        "cunning":{
-          "value": 0,
-          "mod": 0,
-          "label": "TRESPASSER.cunning"
-        },
-        "resolve":{
-          "value": 0,
-          "mod": 0,
-          "label": "TRESPASSER.resolve"
-        }
-      },
-      "features": {
-        "value": [],
-        "label": "TRESPASSER.features"
-      },
-      "weapons": {
-        "equipped": [],
-        "label": "TRESPASSER.weapons.header",
-        "subLabels": [
-          "TRESPASSER.weapons.name",
-          "TRESPASSER.weapons.dmg",
-          "TRESPASSER.weapons.range",
-          "TRESPASSER.weapons.keywords",
-          "TRESPASSER.weapons.effect"
-        ]
-      },
-      "armor": {
-        "label": "TRESPASSER.armor.header",
-        "subLabels": [
-          "TRESPASSER.armor.name",
-          "TRESPASSER.armor.weight",
-          "TRESPASSER.armor.ac",
-          "TRESPASSER.armor.die"
-        ],
-        "head": {
-          "label": "TRESPASSER.armor.head",
-          "equipped": false
-        },
-        "body": {
-          "label": "TRESPASSER.armor.body",
-          "equipped": false
-        },
-        "arms": {
-          "label": "TRESPASSER.armor.arms",
-          "equipped": false
-        },
-        "legs": {
-          "label": "TRESPASSER.armor.legs",
-          "equipped": false
-        },
-        "outer": {
-          "label": "TRESPASSER.armor.outer",
-          "equipped": false
-        },
-        "shield": {
-          "label": "TRESPASSER.armor.shield",
-          "equipped": false
-        }
-      },
-      "groups": {}
-    }
-  },
-  "Item": {
-    "types": ["item", "armor", "condition", "power"],
-    "htmlFields": ["description"],
-    "item": {
-      "description": "",
-      "quantity": 1,
-      "weight": 0,
-      "attributes": {},
-      "groups": {}
-    },
-    "armor": {
-      "name": "",
-      "weight": "L",
-      "ac": 0,
-      "die": "d6",
-      "used": false,
-      "equipped": false,
-      "notes": ""
-    },
-    "weapon": {
-      "name": "",
-      "hands": 1,
-      "dmg": "d6",
-      "keywords": "",
-      "range": "Melee",
-      "type": "Weapon",
-      "effect": ""
-    },
-    "condition": {
-      "name": "",
-      "value": 0,
-      "decreaseOnTurnEnd": true,
-      "effect": "",
-      "statusImg": ""
-    },
-    "power": {
-      "name": "",
-      "tier": "Basic",
-      "effortCost": 0,
-      "effortIncrease": 0,
-      "type": "",
-      "stat": "",
-      "implement": "",
-      "damageTag": "",
-      "targets": 1,
-      "areaType": "",
-      "areaSize": "",
-      "range": "",
-      "affectedType": "",
-      "useEffect": "",
-      "hitEffect": "",
-      "solidHitEffect": "",
-      "afterEffect": "",
-      "sourceType": "Universal",
-      "sourceName": ""
-    }
-  }
-  }
-  
+"Actor": {
+	"types": [
+		"character"
+	],
+	"character": {
+		"features": {
+			"value": "Features",
+			"label": "TRESPASSER.features"
+		},
+		"biography": {
+			"value": "Bio"
+		},
+		"inventory": {
+			"label": "TRESPASSER.inventory",
+			"contents": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			],
+			"lines": 18
+		},
+		"hp": {
+			"value": 10,
+			"min": 0,
+			"max": 10,
+			"label": "TRESPASSER.hp"
+		},
+		"recoveries": {
+			"value": 5,
+			"min": 0,
+			"max": 10,
+			"label": "TRESPASSER.recoveries"
+		},
+		"level": {
+			"value": 1,
+			"min": 0,
+			"max": 10,
+			"label": "TRESPASSER.level"
+		},
+		"effort": {
+			"value": 5,
+			"min": 0,
+			"max": 8,
+			"label": "TRESPASSER.effort"
+		},
+		"potency": {
+			"value": "d6",
+			"label": "TRESPASSER.potency"
+		},
+		"skillMod": {
+			"value": 2,
+			"min": 0,
+			"label": "TRESPASSER.skillMod"
+		},
+		"speed": {
+			"value": 25,
+			"min": 0,
+			"label": "TRESPASSER.speed"
+		},
+		"ac": {
+			"value": 15,
+			"min": 0,
+			"label": "TRESPASSER.ac"
+		},
+		"fatigue": {
+			"value": 0,
+			"min": 0,
+			"max": 20,
+			"label": "TRESPASSER.fatigue"
+		},
+		"class": {
+			"value": "",
+			"label": "TRESPASSER.class"
+		},
+		"conditions": {
+			"value": [],
+			"label": "TRESPASSER.conditions"
+		},
+		"themes": {
+			"value": [],
+			"label": "TRESPASSER.themes"
+		},
+		"profession": {
+			"value": "",
+			"label": "TRESPASSER.profession"
+		},
+		"skills": {
+			"acrobatics": {
+				"value": false,
+				"label": "TRESPASSER.skills.acrobatics"
+			},
+			"athletics": {
+				"value": false,
+				"label": "TRESPASSER.skills.athletics"
+			},
+			"folklore": {
+				"value": false,
+				"label": "TRESPASSER.skills.folklore"
+			},
+			"letters": {
+				"value": false,
+				"label": "TRESPASSER.skills.letters"
+			},
+			"mystery": {
+				"value": false,
+				"label": "TRESPASSER.skills.mystery"
+			},
+			"nature": {
+				"value": false,
+				"label": "TRESPASSER.skills.nature"
+			},
+			"perception": {
+				"value": false,
+				"label": "TRESPASSER.skills.perception"
+			},
+			"speech": {
+				"value": false,
+				"label": "TRESPASSER.skills.speech"
+			},
+			"stealth": {
+				"value": false,
+				"label": "TRESPASSER.skills.stealth"
+			},
+			"tinkering": {
+				"value": false,
+				"label": "TRESPASSER.skills.tinkering"
+			}
+		},
+		"attributes": {
+			"strength": {
+				"value": 10,
+				"label": "TRESPASSER.attributes.strength"
+			},
+			"agility": {
+				"value": 10,
+				"label": "TRESPASSER.attributes.agility"
+			},
+			"vigor": {
+				"value": 10,
+				"label": "TRESPASSER.attributes.vigor"
+			},
+			"knowledge": {
+				"value": 10,
+				"label": "TRESPASSER.attributes.knowledge"
+			},
+			"cunning": {
+				"value": 10,
+				"label": "TRESPASSER.attributes.cunning"
+			},
+			"resolve": {
+				"value": 10,
+				"label": "TRESPASSER.attributes.resolve"
+			}
+		},
+		"weapons": [],
+		"armor": {
+			"label": "TRESPASSER.armor.header",
+			"subLabels": {
+				"name": "TRESPASSER.armor.name",
+				"weight": "TRESPASSER.armor.weight",
+				"ac": "TRESPASSER.armor.ac",
+				"die": "TRESPASSER.armor.die"
+			},
+			"head": {
+				"label": "TRESPASSER.armor.head",
+				"equipped": false
+			},
+			"body": {
+				"label": "TRESPASSER.armor.body",
+				"equipped": false
+			},
+			"arms": {
+				"label": "TRESPASSER.armor.arms",
+				"equipped": false
+			},
+			"legs": {
+				"label": "TRESPASSER.armor.legs",
+				"equipped": false
+			},
+			"outer": {
+				"label": "TRESPASSER.armor.outer",
+				"equipped": false
+			},
+			"shield": {
+				"label": "TRESPASSER.armor.shield",
+				"equipped": false
+			}
+		},
+		"powers": [],
+		"groups": {}
+	}
+},
+"Item": {
+	"types": [
+		"item",
+		"armor",
+		"weapon",
+		"condition",
+		"power"
+	],
+	"htmlFields": [
+		"description"
+	],
+	"item": {
+		"description": "",
+		"quantity": 1,
+		"weight": 0,
+		"attributes": {},
+		"groups": {}
+	},
+	"armor": {
+		"weight": "L",
+		"ac": 0,
+		"die": "d6",
+		"used": false,
+		"equipped": false,
+		"notes": ""
+	},
+	"weapon": {
+		"twoHanded": false,
+		"equipped": false,
+		"dmg": "d6",
+		"keywords": "",
+		"weaponTypeString": "",
+		"weaponDistanceString": "",
+		
+		"ranges": {
+			"melee": {
+				"value": true,
+				"string": "Melee",
+				"range": 5,
+				"label": "TRESPASSER.weapon.types.melee"
+			},
+			"ranged": {
+				"value": false,
+				"string": "Ranged",
+				"range": 20,
+				"label": "TRESPASSER.weapon.types.ranged"
+			},
+			"conjury": {
+				"value": false,
+				"string": "Conjury",
+				"range": 20,
+				"label": "TRESPASSER.weapon.types.conjury"
+			},
+			"artifice": {
+				"value": false,
+				"string": "Artifice",
+				"range": 20,
+				"label": "TRESPASSER.weapon.types.artifice"
+			},
+			"unarmed": {
+				"value": false,
+				"string": "Unarmed",
+				"range": 5,
+				"label": "TRESPASSER.weapon.types.unarmed"
+			}
+		},
+		"effect": "",
+		"effectMacro": "",
+		"notes": "",
+		"weight": "L"
+	},
+	"condition": {
+		"value": 0,
+		"decreaseOnTurnEnd": true,
+		"effect": "",
+		"statusImg": ""
+	},
+	"power": {
+		"tier": "Basic",
+		"baseEffortCost": 0,
+		"currentEffortCost": 0,
+		"maxEffortCost": 0,
+		"effortIncrease": 0,
+		"timesUsed": 0,
+		"powerType": "",
+		"stat": "",
+		"implement": "",
+		"damageTag": "",
+		"targets": 1,
+		"areaType": "",
+		"areaSize": "",
+		"range": "",
+		"affectedType": "",
+		"useEffect": "",
+		"hitEffect": "",
+		"solidHitEffect": "",
+		"afterEffect": "",
+		"sourceType": "Universal",
+		"sourceName": "",
+		"condition1Name": "",
+		"condition1Text": "",
+		"condition2Name": "",
+		"condition2Text": "",
+		"card": ""
+	}
+}
+}

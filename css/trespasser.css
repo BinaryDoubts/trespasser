@@ -1,4 +1,107 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+.power-header:hover{
+  cursor: pointer;
+}
+
+.power-header:active{
+
+}
+
+.power-cost{
+  font-size: larger;
+  border: 2px solid black;
+  border-radius: 5%;
+  max-width: 50px;
+}
+
+.power-header-basic, .power-header-basic-class {
+  background-color: #BE7659;
+}
+
+.power-header-basic:hover, .power-header-basic-class:hover {
+  background-color: #F16026;
+}
+
+.power-header-special, .power-header-special-class {
+  background-color: #AC5A59;
+} 
+.power-header-special:hover, .power-header-special-class:hover {
+  background-color: #D6312F;
+}
+
+.power-header-mighty {
+  background-color: #5F343B;
+}
+
+.power-header-mighty:hover {
+  background-color: #751E2C;
+}
+
+.power-header-free, .power-header-free-class {
+  background-color: #D0B373;
+}
+
+.power-header-free, .power-header-free-class {
+  background-color: #FFC444;
+}
+
+.power-name {
+  font-size: x-large;
+  padding-left: 5px;
+}
+
+.power-tier{
+  padding-top: 5px;
+  text-align: end;
+  padding-right: 5px;
+  font-style: italic;
+}
+
+.card-header{
+  color: black;
+}
+
+.power-keywords{
+  padding-top: 5px;
+  text-align: center;
+}
+
+.power-effect-type{
+  font-weight: bold;
+
+  padding-right: 2px;
+}
+
+.features-editor{
+  height: 200px;
+  padding: 10px;
+}
+
+.notes-editor{
+  height: 600px;
+  padding: 10px;
+}
+
+.inline-svg{
+  width: 1.5em;
+  vertical-align: middle;
+  max-height: 1.5em;
+  display: inline-block;
+}
+
+tr{
+  border-bottom: 1px solid #ddd;
+}
+
+th{
+  min-width: 30px;
+  text-align: center;
+}
+
+td{
+  max-width: 150px;
+}
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;

@@ -12,6 +12,14 @@ export class TrespasserItem extends Item {
     super.prepareData();
   }
 
+  prepareDerivedData(){
+    if (this.type == "power"){
+    this.system.currentEffortCost = this.system.baseEffortCost;
+    }
+    else if (this.type == "weapon"){
+      this.generateWeaponStrings();
+    }
+  }
   /**
    * Prepare a data object which is passed to any Roll formulas which are created related to this Item
    * @private
@@ -65,4 +73,24 @@ export class TrespasserItem extends Item {
       return roll;
     }
   }
+
+  generateWeaponStrings(){
+    var distanceString = "";
+    var typeString = "";
+    for (const [key, value] of Object.entries(this.system.rangeTypes)){
+        if (value){
+          if (distanceString != ""){
+            distanceString += "/";
+          }
+        distanceString += this.system.rangeTypes[key];
+        if (typeString != ""){
+          typeString += "/";
+        }
+        typeString += key;
+      }
+    }
+    this.system.weaponTypeString = typeString;
+    this.system.weaponDistanceString = distanceString;
+  }
+
 }

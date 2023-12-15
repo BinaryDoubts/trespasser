@@ -36,6 +36,7 @@ export class TrespasserActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
+
     this._prepareNpcData(actorData);
   }
 
@@ -49,10 +50,12 @@ export class TrespasserActor extends Actor {
     const systemData = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
+    for (let [key, attribute] of Object.entries(systemData.attributes)) {
       // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
+      attribute.mod = Math.floor((attribute.value - 10) / 2);
+      attribute.skilledMod = attribute.mod + systemData.skillMod.value;
     }
+
   }
 
   /**
@@ -63,7 +66,7 @@ export class TrespasserActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-    systemData.xp = (systemData.cr * systemData.cr) * 100;
+
   }
 
   /**
@@ -87,16 +90,12 @@ export class TrespasserActor extends Actor {
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
-    if (data.abilities) {
-      for (let [k, v] of Object.entries(data.abilities)) {
+    if (data.attributes) {
+      for (let [k, v] of Object.entries(data.attributes)) {
         data[k] = foundry.utils.deepClone(v);
       }
     }
 
-    // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
-    }
   }
 
   /**

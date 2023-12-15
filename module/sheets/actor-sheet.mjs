@@ -10,15 +10,16 @@ export class TrespasserActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["trespasser", "sheet", "actor"],
-      template: "systems/trespasser/templates/actor/actor-sheet.html",
-      width: 600,
-      height: 600,
+      template: "systems/trespasser/templates/actor/actor-character-sheet.html",
+      width: 800,
+      height: 800,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
     });
   }
 
   /** @override */
   get template() {
+    
     return `systems/trespasser/templates/actor/actor-${this.actor.type}-sheet.html`;
   }
 
@@ -43,6 +44,7 @@ export class TrespasserActorSheet extends ActorSheet {
     if (actorData.type == 'character') {
       this._prepareItems(context);
       this._prepareCharacterData(context);
+
     }
 
     // Prepare NPC data and items.
@@ -67,10 +69,16 @@ export class TrespasserActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
+
     // Handle ability scores.
-    for (let [k, v] of Object.entries(context.system.abilities)) {
-      v.label = game.i18n.localize(CONFIG.TRESPASSER.abilities[k]) ?? k;
+    for (let [k, v] of Object.entries(context.system.attributes)) {
+      v.label = game.i18n.localize(CONFIG.TRESPASSER.attributes[k]) ?? k;
     }
+
+    for (let [k, v] of Object.entries(context.system.skills)) {
+      v.label = game.i18n.localize(CONFIG.TRESPASSER.skills[k]) ?? k;
+    }
+
   }
 
   /**
@@ -82,23 +90,27 @@ export class TrespasserActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
-    const gear = [];
-    const features = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
-    };
+
+    const weapons = [];
+    const powers = [];
+
+    for (let i of context.items){
+      i.img = i.img || DEFAULT_TOKEN;
+      if (i.type === "power"){
+        powers.push(i);
+      }
+      else if (i.type === "weapon"){
+        weapons.push(i);
+      }
+    }
+
+    context.actor.system.weapons = weapons;
+    context.actor.system.powers = powers;
+
+    return context;
 
     // Iterate through items, allocating to containers
-    for (let i of context.items) {
+    /* for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'item') {
@@ -119,7 +131,7 @@ export class TrespasserActorSheet extends ActorSheet {
     // Assign and return
     context.gear = gear;
     context.features = features;
-    context.spells = spells;
+    context.spells = spells; */
   }
 
   /* -------------------------------------------- */
@@ -135,13 +147,18 @@ export class TrespasserActorSheet extends ActorSheet {
       item.sheet.render(true);
     });
 
+    html.find(".power-header").click(this._onPowerHeaderClick.bind(this));
+    //html.find(".attribute-input").change(this._onAttributeChange.bind(this));
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
+    
+    html.find(".item-share").click(this._onSharePowerClick.bind(this));
+    html.find(".item-delete").click(this._onDeletePowerClick.bind(this));
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
-
+    html.find(".effort-box").click(this._onEffortBoxClick.bind(this));
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
@@ -149,6 +166,8 @@ export class TrespasserActorSheet extends ActorSheet {
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
+
+
 
     // Active Effect management
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
@@ -172,6 +191,48 @@ export class TrespasserActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
+
+  async _onDeletePowerClick(event){
+    const item = this.object.items.get(event.currentTarget.dataset.itemId)
+    item.delete();
+  }
+
+  async _onAttributeChange(event){
+    event.preventDefault();
+    const attr = event.target.dataset.attribute;
+    const actor = this.object;
+    const val = actor.system.attributes[attr].value;
+    actor.system.attributes[attr].mod = Math.floor((val - 10) / 2);
+    actor.system.attributes[attr].skilledMod = Math.floor((val - 10) / 2) + actor.system.skillMod;
+
+  }
+
+  async _onPowerHeaderClick(event){
+    const item = this.object.items.get(event.currentTarget.dataset.itemId)
+    const card = await this.getCardData(item);
+    const msg = await ChatMessage.create({"content": card});
+  }
+
+  async _onSharePowerClick(event){
+    const item = this.object.items.get(event.currentTarget.dataset.itemId);
+    const card = await this.getCardData(item);
+    const msg = await ChatMessage.create({"content": card});
+  }
+
+  async _onEffortBoxClick(event){
+    event.preventDefault();
+  }
+
+  async getCardData(item){
+    if (!item.card){
+      item.card = await renderTemplate("systems/trespasser/templates/chat/power-card.hbs", item);
+      return item.card;
+    }
+    else{
+      return item.card;
+    }
+  }
+
   async _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
@@ -189,9 +250,23 @@ export class TrespasserActorSheet extends ActorSheet {
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system["type"];
-
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
+
+  }
+
+  async _onDropItemCreate(event, itemData){
+
+    if (event.type == "power"){
+      var newItem = await Item.create(event, {parent: this.actor});
+      this.actor.system.powers.push(newItem);
+      return await newItem;
+    }
+    if (event.type == "weapon"){
+      var newItem = await Item.create(event, {parent: this.actor});
+      this.actor.system.weapons.push(newItem);
+      return await newItem;
+    }
   }
 
   /**
@@ -199,7 +274,7 @@ export class TrespasserActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+  async _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
@@ -215,7 +290,7 @@ export class TrespasserActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `[ability] ${dataset.label}` : '';
+      let label = dataset.label ? `[attribute] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

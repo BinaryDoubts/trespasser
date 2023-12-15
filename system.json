@@ -21,6 +21,8 @@
       "flags": {}
     }
   ],
+  "packs": [
+  ],
   "version": "1.0",
   "compatibility": {
     "minimum": "11",

@@ -4,12 +4,13 @@
  * @return {Promise}
  */
  export const preloadHandlebarsTemplates = async function() {
-  return loadTemplates([
+  return loadTemplates({
 
     // Actor partials.
-    "systems/trespasser/templates/actor/parts/actor-features.html",
-    "systems/trespasser/templates/actor/parts/actor-items.html",
-    "systems/trespasser/templates/actor/parts/actor-spells.html",
-    "systems/trespasser/templates/actor/parts/actor-effects.html",
-  ]);
+    "actor-powers": "systems/trespasser/templates/actor/parts/actor-powers.html",
+    "actor-effects": "systems/trespasser/templates/actor/parts/actor-effects.html",
+    "actor-arms": "systems/trespasser/templates/actor/parts/actor-arms.hbs",
+    //power card
+    "power-card": "systems/trespasser/templates/chat/power-card.hbs"
+ });
 };

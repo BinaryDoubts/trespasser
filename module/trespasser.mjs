@@ -52,7 +52,6 @@ Hooks.once('init', async function() {
 /*  Handlebars Helpers                          */
 /* -------------------------------------------- */
 
-// If you need to add Handlebars helpers, here are a few useful examples:
 Handlebars.registerHelper('concat', function() {
   var outStr = '';
   for (var arg in arguments) {
@@ -67,6 +66,76 @@ Handlebars.registerHelper('toLowerCase', function(str) {
   return str.toLowerCase();
 });
 
+Handlebars.registerHelper("ifEquals", function(v1, v2, options){
+  if (v1 == v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
+//thanks to Jim on stackoverflow for this one (https://stackoverflow.com/a/16315366)
+Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
+  switch (operator) {
+      case '==':
+          return (v1 == v2) ? options.fn(this) : options.inverse(this);
+      case '===':
+          return (v1 === v2) ? options.fn(this) : options.inverse(this);
+      case '!=':
+          return (v1 != v2) ? options.fn(this) : options.inverse(this);
+      case '!==':
+          return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+      case '<':
+          return (v1 < v2) ? options.fn(this) : options.inverse(this);
+      case '<=':
+          return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+      case '>':
+          return (v1 > v2) ? options.fn(this) : options.inverse(this);
+      case '>=':
+          return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+      case '&&':
+          return (v1 && v2) ? options.fn(this) : options.inverse(this);
+      case '||':
+          return (v1 || v2) ? options.fn(this) : options.inverse(this);
+      default:
+          return options.inverse(this);
+  }
+});
+
+Handlebars.registerHelper("buildRanges", function(ranges, flag){
+  var rangeStrings = {
+    "types": "",
+    "distances": ""
+  }
+  for (var i = 0; i < ranges.length; i++){
+    if (ranges[i].enabled){
+      if (rangesStrings.types.length){
+        rangeStrings.types += "/" + ranges[i].string;
+        rangeStrings.distances += "/" + ranges[i].val;
+      }
+      else{
+        rangeStrings.type = ranges[i].string;
+        rangeStrings.distances = ranges[i].val;
+      }
+    }
+  }
+  if (flag == "distance") return rangeStrings.distances;
+  if (flag == "type") return rangeStrings.types;
+});
+
+Handlebars.registerHelper("iconReplace", function(str){
+
+  var temp = str;
+  const dmgRe = /\[DMG\]/gi;
+  const potRe = /\[POT\]/gi;
+  const skillRe = /\[SKL\]/gi;
+  const effectRe = /\[EFC\]/gi;
+
+  temp = temp.replace(dmgRe, `<i class="fa-solid fa-hand-fist" title="Weapon Damage"></i>`);  
+  temp = temp.replace(potRe, `<i class="fa-solid fa-dice-d6" title = "Potency Die"></i>`);  
+  temp = temp.replace(skillRe, `<i class="fa-solid fa-scroll" title = "Skilled Bonus"></i>`); 
+  temp = temp.replace(effectRe, `weapon effect`); 
+  return temp;
+});
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */

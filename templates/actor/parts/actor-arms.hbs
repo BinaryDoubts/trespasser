@@ -1,0 +1,30 @@
+  <table class = "weapon-table">
+    <tr>
+      <th>Equipped</th>
+      <th>Name</th>
+      <th>Damage <i class="fa-solid fa-hand-fist"></i></th>
+      <th><i class="fa-solid fa-weight-hanging"></i></th>
+      <th>Type</th>
+      <th>Range</th>
+      <th>Effect</th>
+      <th>Hands</th>
+      <th></th>
+    </tr>
+    {{log this.actor}}
+    {{#each this.actor.system.weapons}}
+      <tr class = "weapon-entry">
+        <td class = "flex-group-center"><input type = "checkbox" class = "weapon-equipped" value = "{{this.system.equipped}}" name = "this.system.equipped" data-dtype = "Boolean" {{#if this.system.equipped}}checked{{/if}}/></td>
+        <td class = "flex-group-center">{{this.name}}</td>
+        <td class = "flex-group-center">{{this.system.dmg}}</td>
+        <td class = "flex-group-center">{{this.system.weight}}</td>
+        <td class = "flex-group-center">{{this.system.weaponTypeString}}</td>
+        <td class = "flex-group-center">{{this.system.weaponDistanceString}}</td>
+        <td class = "flex-group-center">{{this.system.effect}}</td>
+        <td class = "flex-group-center">{{#if this.system.twoHanded}}2{{else}}1{{/if}}</td>
+        <td class = "flex-group-center"><a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+          <a class="item-control item-delete" data-item-id = "{{this._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+          <a class="item-control weapon-share" data-item-id = "{{this._id}}" title="Share to Chat"><i class="fa-solid fa-share"></i></a>
+        </td>
+    </tr>
+    {{/each}}
+  </table>

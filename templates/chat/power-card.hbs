@@ -1,0 +1,71 @@
+<form class="{{cssClass}} {{actor.type}}">
+<div class = "trespasser power-card" data-actor-id="{{actor._id}}">
+    <header class = "card-header power-header grid grid-2col {{system.headerClass}}" data-item-id="{{this._id}}">
+        <div class = "power-name">{{#if this.name}}{{this.name}}{{else}}{{item.name}}{{/if}}</div>
+        <div class = "power-tier">{{system.tier}}</div>
+    </header>
+    <div class = "power-keywords">{{system.stat}} {{system.powerType}}
+
+        {{#if system.implement}} — {{system.implement}}{{/if}}
+        {{#if system.damageType}}
+            {{#ifEquals system.damageType "Physical"}}
+            {{else}}
+                 — {{system.damageType}}
+            {{/ifEquals}}
+        {{/if}}
+    </div>
+    <table class = "power-table">
+        <tr>
+            <th>Target</th>
+                {{#ifEquals system.targets "Self"}}
+                    <td>Self</td>
+                {{else}}
+                    {{#ifEquals system.targets "Area"}}
+                        <td>{{system.areaSize}} ft. {{system.areaType}}
+                        {{#if system.affectedType}}
+                            , {{system.affectedType}} only
+                        {{/if}}</td>
+                    {{else}}
+                        <td>{{system.targets}} {{system.affectedType}}</td>
+                    {{/ifEquals}}
+                {{/ifEquals}}
+        </tr>
+        {{#if system.useEffect}}
+            <tr>
+                <th>On Use </th>
+                <td>{{#iconReplace system.useEffect}}{{/iconReplace}}</td>
+            </tr>
+        {{/if}}
+        {{#if system.hitEffect}}
+            <tr>
+                <th>Hit</th>
+                <td>{{#iconReplace system.hitEffect}}{{/iconReplace}}</td>
+            </tr>
+        {{/if}}
+        {{#if system.solidHitEffect}}
+            <tr>
+                <th>Solid Hit</th>
+                <td>{{#iconReplace system.solidHitEffect}}{{/iconReplace}}</td>
+            </tr>            
+        {{/if}}
+        {{#if system.afterEffect}}
+            <tr>
+                <th>After</th>
+                <td>{{#iconReplace system.afterEffect}}{{/iconReplace}}</td>
+            </tr>           
+        {{/if}}
+        {{#if system.condition1Name}}
+            <tr>
+                <th>{{system.condition1Name}}</th>
+                <td>{{#iconReplace system.condition1Text}}{{/iconReplace}}</td>
+            </tr>
+        {{/if}}
+        {{#if item.system.condition2Name}}
+            <tr>
+                <th>{{system.condition2Name}}</th>
+                <td>{{#iconReplace system.condition2Text}}{{/iconReplace}}</td>
+            </tr>
+        {{/if}}
+    </table>
+</div>
+</form>
